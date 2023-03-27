@@ -226,7 +226,7 @@ h6 {
 # Hero Section
 --------------------------------------------------------------*/
 #hero {
-  width: 100%;
+  width: 70%;
   height: 100vh;
   background: url("assets/img/giphy.gif") top center;
   background-size: cover;
