@@ -519,7 +519,6 @@ section {
 --------------------------------------------------------------*/
 .portfolio .portfolio-item {
   margin-bottom: 30px;
-  align-items: center;
 }
 
 .portfolio #portfolio-flters {
@@ -559,7 +558,7 @@ section {
   position: relative;
   overflow: hidden;
   z-index: 1;
-  
+  display: flex;
   justify-content: center;
 }
 
