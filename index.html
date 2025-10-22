@@ -185,6 +185,16 @@
             transition: all 0.3s;
         }
 
+        .social-btn img {
+            width: 20px;
+            height: 20px;
+            filter: brightness(0) invert(1);
+        }
+
+        body.light-mode .social-btn img {
+            filter: brightness(0) invert(0);
+        }
+
         body.light-mode .social-btn {
             border: 1px solid rgba(0, 0, 0, 0.1);
         }
