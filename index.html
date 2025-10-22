@@ -852,10 +852,16 @@
             // Scroll to top
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
+        
         function toggleMenu() {
             const links = document.querySelector('.nav-links');
             links.classList.toggle('open');
           }
+
+        function toggleMenu() {
+          if (window.innerWidth > 768) return; // Evita apertura su desktop
+          document.querySelector('.nav-links').classList.toggle('open');
+        }
         
           // chiudi il menu dopo il click su un link
           document.addEventListener('click', (e) => {
