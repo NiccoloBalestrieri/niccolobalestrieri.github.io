@@ -450,7 +450,6 @@
         /* sistema padding della vecchia .now-content (non la useremo più) */
         .now-content { display: none; }
         
-                }
         /* hamburger nascosto su desktop */
         .menu-toggle {
           display: none !important;
@@ -509,6 +508,10 @@
         
           /* tieni visibile il toggle tema accanto all’hamburger */
           .theme-toggle { font-size: 1.4rem; padding: .25rem; }
+        }
+
+        @media (min-width: 769px) {
+          .menu-toggle { display: none !important; }
         }
 
     </style>
@@ -854,19 +857,26 @@
         }
         
         function toggleMenu() {
-            const links = document.querySelector('.nav-links');
-            links.classList.toggle('open');
+            if (window.innerWidth > 768) return; // evita apertura su desktop
+            document.querySelector('.nav-links')?.classList.toggle('open');
+            // (accessibilità) aggiorna aria-expanded sul bottone
+            const btn = document.querySelector('.menu-toggle');
+            if (btn) btn.setAttribute('aria-expanded', document.querySelector('.nav-links')?.classList.contains('open') ? 'true' : 'false');
           }
-
-        function toggleMenu() {
-          if (window.innerWidth > 768) return; // Evita apertura su desktop
-          document.querySelector('.nav-links').classList.toggle('open');
-        }
         
           // chiudi il menu dopo il click su un link
           document.addEventListener('click', (e) => {
             if (e.target.closest('.nav-links a')) {
               document.querySelector('.nav-links')?.classList.remove('open');
+              document.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
+            }
+          });
+        
+          // chiudi il menu se si ridimensiona sopra 768px
+          window.addEventListener('resize', () => {
+            if (window.innerWidth > 768) {
+              document.querySelector('.nav-links')?.classList.remove('open');
+              document.querySelector('.menu-toggle')?.setAttribute('aria-expanded', 'false');
             }
           });
     </script>
