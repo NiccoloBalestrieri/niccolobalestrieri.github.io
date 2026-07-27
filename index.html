@@ -370,6 +370,7 @@
             margin: 2.25rem auto 0;
             display: grid;
             grid-template-columns: repeat(12, 1fr);
+            align-items: start;
             gap: 1.25rem;
             max-width: 1100px;
         }
@@ -453,6 +454,47 @@
             font-size: .9rem;
             color: var(--text-muted);
         }
+
+        .now .now-title { margin-bottom: 1.4rem; }
+
+        .now-updated {
+            text-align: center;
+            margin: 0 0 2.25rem;
+            font-size: .85rem;
+            color: var(--text-muted);
+            letter-spacing: .3px;
+        }
+
+        .stack {
+            display: grid;
+            gap: .9rem;
+            margin-top: .3rem;
+        }
+
+        .stack-row {
+            display: grid;
+            grid-template-columns: 132px 1fr;
+            gap: .75rem;
+            align-items: start;
+        }
+
+        .stack-label {
+            font-size: .78rem;
+            text-transform: uppercase;
+            letter-spacing: .6px;
+            color: var(--text-muted);
+            padding-top: .42rem;
+        }
+
+        .now-cta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1.2rem;
+            flex-wrap: wrap;
+        }
+
+        .now-cta .note { margin-top: .4rem; }
 
         /* RESPONSIVE - Tablet */
         @media (min-width: 768px) and (max-width: 1024px) {
@@ -628,6 +670,20 @@
 
             .chips {
                 gap: 0.4rem;
+            }
+
+            .stack-row {
+                grid-template-columns: 1fr;
+                gap: 0.35rem;
+            }
+
+            .stack-label {
+                padding-top: 0;
+            }
+
+            .now-cta {
+                flex-direction: column;
+                align-items: flex-start;
             }
 
             .chip {
@@ -878,76 +934,103 @@
     <div id="now" class="page">
         <section class="now">
             <h2 class="section-title now-title">Now</h2>
-        
+            <p class="now-updated">Last updated · July 2026</p>
+
             <div class="now-grid">
-                <!-- What I'm doing now -->
+                <!-- What I'm working on -->
                 <div class="now-card span-7">
-                    <div class="card-head"><span class="icon">🚀</span> What I'm working on</div>
+                    <div class="card-head"><span class="icon">🛠️</span> What I'm working on</div>
                     <ul class="icon-list">
-                        <li><span>👁️</span><span>Development of advanced <strong>Computer Vision systems</strong>, including automated betslips ticket reading using instance segmentation and real-time checkout fruit classification.</span></li>
-                        <li><span>🧬</span><span>Designing end-to-end <strong>AI & Deep Learning pipelines</strong> from dataset curation (DVC) to production deployment in R&D industrial environments.</span></li>
-                        <li><span>🇯🇵</span><span>Working and studying on which hardware is better for our solution (es: camera, lens ecc...).</span></li>
+                        <li><span>📷</span><span>Building a <strong>C#/.NET library</strong> for an industrial vision system: image acquisition, metadata persistence, and integration with scale &amp; weighing hardware.</span></li>
+                        <li><span>👁️</span><span>Computer vision in production with <strong>Halcon</strong> — instance segmentation for automated ticket reading and real-time product classification at checkout.</span></li>
+                        <li><span>🧰</span><span>Writing internal tooling and <strong>Claude Code</strong> skills so the team ships faster: audits, commit formatting, repeatable workflows.</span></li>
                     </ul>
                 </div>
-            </div>
-            
-                <!-- Future goals -->
+
+                <!-- Exploring next -->
                 <div class="now-card span-5">
-                    <div class="card-head"><span class="icon">🌱</span> What I'd love to explore next</div>
+                    <div class="card-head"><span class="icon">🧭</span> Learning &amp; exploring</div>
                     <ul class="icon-list">
-                        <li><span>🧬</span><span>Integrating <strong>AI in biotech and biomedical applications</strong> combining data, vision, and language models to improve human well-being.</span></li>
-                        <li><span>⚙️</span><span>Advancing in <strong>MLOps</strong> and scalable model deployment with <strong>Azure ML</strong> and cloud-native workflows.</span></li>
-                        <li><span>🧭</span><span>Collaborating on <strong>ambitious, interdisciplinary AI projects</strong> that blend creativity, data, and impact.</span></li>
+                        <li><span>⚙️</span><span>Cleaner library design in .NET: disposal patterns, thread-safe producer/consumer pipelines, and public APIs that are hard to misuse.</span></li>
+                        <li><span>☁️</span><span>MLOps and model deployment with <strong>Azure ML</strong> and cloud-native workflows.</span></li>
+                        <li><span>🧬</span><span>Where computer vision meets biomedical data — a direction I'd like to grow into.</span></li>
                     </ul>
                 </div>
-            
-                <!-- Work Stack -->
-                <div class="now-card span-8">
-                    <div class="card-head"><span class="icon">🧰</span> Current Tech Stack</div>
-                    <div class="chips">
-                        <span class="chip">Python</span>
-                        <span class="chip">LangChain</span>
-                        <span class="chip">Transformers</span>
-                        <span class="chip">PyTorch</span>
-                        <span class="chip">TensorFlow</span>
-                        <span class="chip">OpenCV</span>
-                        <span class="chip">Scikit-learn</span>
-                        <span class="chip">Dash</span>
-                        <span class="chip">Plotly</span>
-                        <span class="chip">FastAPI</span>
-                        <span class="chip">Docker</span>
-                        <span class="chip">PostgreSQL</span>
-                        <span class="chip">Neo4j</span>
-                        <span class="chip">ElasticSearch</span>
-                        <span class="chip">Azure ML</span>
-                        <span class="chip">Git</span>
-                        <span class="chip">SQL</span>
-                        <span class="chip">Java</span>
-                        <span class="chip">Keras</span>
-                        <span class="chip">Matplotlib</span>
-                        <span class="chip">Seaborn</span>
-                        <span class="chip">Pandas</span>
-                        <span class="chip">Numpy</span>
-                        <span class="chip">MongoDB</span>
-                        <span class="chip">FAISS/ChromaDB</span>
-                        <span class="chip">Halcon</span>
-                        <span class="chip">Jira</span>
-                        <span class="chip">Roboflow</span>
-                        <span class="chip">Copilot Studio</span>
+
+                <!-- Tech stack -->
+                <div class="now-card span-12">
+                    <div class="card-head"><span class="icon">💻</span> Tools I reach for</div>
+                    <div class="stack">
+                        <div class="stack-row">
+                            <span class="stack-label">Languages</span>
+                            <div class="chips">
+                                <span class="chip">C# / .NET</span>
+                                <span class="chip">Python</span>
+                                <span class="chip">Java</span>
+                                <span class="chip">SQL</span>
+                            </div>
+                        </div>
+                        <div class="stack-row">
+                            <span class="stack-label">Vision</span>
+                            <div class="chips">
+                                <span class="chip">Halcon</span>
+                                <span class="chip">OpenCV</span>
+                                <span class="chip">Roboflow</span>
+                            </div>
+                        </div>
+                        <div class="stack-row">
+                            <span class="stack-label">ML / DL</span>
+                            <div class="chips">
+                                <span class="chip">PyTorch</span>
+                                <span class="chip">TensorFlow</span>
+                                <span class="chip">Keras</span>
+                                <span class="chip">scikit-learn</span>
+                                <span class="chip">Transformers</span>
+                                <span class="chip">LangChain</span>
+                            </div>
+                        </div>
+                        <div class="stack-row">
+                            <span class="stack-label">Data &amp; viz</span>
+                            <div class="chips">
+                                <span class="chip">pandas</span>
+                                <span class="chip">NumPy</span>
+                                <span class="chip">Matplotlib</span>
+                                <span class="chip">Seaborn</span>
+                                <span class="chip">Plotly</span>
+                                <span class="chip">Dash</span>
+                            </div>
+                        </div>
+                        <div class="stack-row">
+                            <span class="stack-label">Storage &amp; search</span>
+                            <div class="chips">
+                                <span class="chip">PostgreSQL</span>
+                                <span class="chip">MongoDB</span>
+                                <span class="chip">Neo4j</span>
+                                <span class="chip">Elasticsearch</span>
+                                <span class="chip">FAISS / Chroma</span>
+                            </div>
+                        </div>
+                        <div class="stack-row">
+                            <span class="stack-label">Serving &amp; ops</span>
+                            <div class="chips">
+                                <span class="chip">FastAPI</span>
+                                <span class="chip">Docker</span>
+                                <span class="chip">Azure ML</span>
+                                <span class="chip">Git</span>
+                                <span class="chip">Jira</span>
+                                <span class="chip">Copilot Studio</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            
-                <!-- Personal mindset -->
-                <div class="now-card span-4">
-                    <div class="card-head"><span class="icon">🔥</span> Always looking for</div>
-                    <ul class="icon-list">
-                        <li><span>🚀</span><span>Challenging and visionary AI projects that push my boundaries.</span></li>
-                        <li><span>🧩</span><span>Opportunities to connect technology, design, and human experience.</span></li>
-                        <li><span>🌍</span><span>Teams driven by curiosity, impact, and long-term innovation.</span></li>
-                    </ul>
-                    <div class="note">Let's build something ambitious together.  
-                        <a class="cta-btn" href="mailto:niccolobalestrieri2@gmail.com">Get in touch</a>
+
+                <!-- Get in touch -->
+                <div class="now-card span-12 now-cta">
+                    <div>
+                        <div class="card-head"><span class="icon">✉️</span> Open to a conversation</div>
+                        <p class="note">Working on computer vision, .NET tooling, or ML in production? Happy to trade notes.</p>
                     </div>
+                    <a class="cta-btn" href="mailto:niccolobalestrieri2@gmail.com">Get in touch</a>
                 </div>
             </div>
         </section>
